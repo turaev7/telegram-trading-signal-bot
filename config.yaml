@@ -1,0 +1,29 @@
+symbols:
+  - "BINANCE:BTC/USDT"   # BTC from Binance
+  - "BINANCE:GBP/USDT"   # GBP proxy vs USDT from Binance
+
+timeframes: ["5m", "15m", "1h"]
+
+risk:
+  sl_mode: "atr"
+  atr_mult: 1.0
+  tp1_r: 1.0
+  tp2_r: 2.0
+  split_tp: [0.5, 0.5]
+
+strategies:
+  - name: smc
+    enabled: true
+    params:
+      min_confirmations: 4
+      lookback_bars: 150
+      wick_ratio: 0.6
+      eq_high_tol_bps: 10
+      fib_zones: [0.62, 0.79]
+      gap_min_bps: 20
+      atr_len: 14
+      enable_elliott: false
+
+exchange:
+  name: binance
+  rate_limit_sleep_ms: 600
